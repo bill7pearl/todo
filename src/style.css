@@ -1,0 +1,36 @@
+body {
+  background-color: bisque;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input {
+  width: 100%;
+  padding: 20px;
+}
+
+.tasks-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.task-description {
+  flex-basis: 80%;
+}
+
+button {
+  width: 100%;
+  padding: 20px;
+}
