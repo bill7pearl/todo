@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.js',
   devServer: {
     static: './dist',
@@ -14,7 +14,7 @@ module.exports = {
   ],
   output: {
     filename: '[name].js',
-    path: __dirname + '/build',
+    path: __dirname + '/dist',
     chunkFilename: '[id].[chunkhash].js'
   },
   optimization: {
