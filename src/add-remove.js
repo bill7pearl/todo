@@ -1,9 +1,8 @@
-/* eslint-disable no-plusplus */
-/* eslint-disable no-use-before-define */
-/* eslint-disable no-unused-vars */
-/* eslint-disable max-classes-per-file */
-import _ from 'lodash';
+/* eslint-disable */
+/* import _ from 'lodash';
 import './style.css';
+
+
 
 class LocalStorage {
   static addToStorage(todoArr) {
@@ -20,9 +19,11 @@ class LocalStorage {
 
 const form = document.querySelector('.form');
 const lists = document.querySelector('.lists');
-const input = document.querySelector('#input');
+let input = document.querySelector('#input');
+
 
 let todoArr = LocalStorage.getStorage();
+//let editedArr = LocalStorage.getStorage();
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -36,6 +37,7 @@ form.addEventListener('submit', (e) => {
   UI.displayData();
   UI.clearField();
   UI.removeTodo();
+  UI.editTodo();
   LocalStorage.addToStorage(todoArr);
 });
 
@@ -52,10 +54,12 @@ class UI {
             <div class="todo">
             <input class="checkbox" type="checkbox">
             <p class="todo-desc">${item.todo}</p>
+            <span class="edit-todo" data-id = ${item.todo}>✍</span>
             <span class="remove" data-id = ${item.index}>🚮</span>
         </div>
             `);
     lists.innerHTML = (displayData).join(' ');
+    //UI.editTodo()
   }
 
   static clearField() {
@@ -65,6 +69,7 @@ class UI {
   static removeTodo() {
     lists.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove')) {
+        //e.preventDefault();
         e.target.parentElement.remove();
       }
       const btnId = e.target.dataset.id;
@@ -77,9 +82,55 @@ class UI {
     todoArr = todoArr.filter((item) => item.index !== +index);
     LocalStorage.addToStorage(todoArr);
   }
+
+   static editTodo() {
+    let editBtnId = document.querySelector('.edit-todo');
+    
+    lists.addEventListener('click', (e) => {
+        if (e.target.classList.contains('edit-todo')) {
+            //e.preventDefault();
+            const closeInput = document.querySelector('.close-field')
+            const editField = document.querySelector('.edit-field-bg')
+            let userInput = document.querySelector('.user-input')
+            
+            editBtnId = e.target.dataset.id;
+            
+            const editedArr = todoArr.map(item => {
+            if (item.todo === editBtnId) {
+                editField.style.display = 'flex';
+                userInput.innerHTML = `
+                <button onclick="closeUserInput()" class="close-field">X</button>
+               <input class="edit-field" type="text" name="" id="edited-input" value="">
+               `
+               function closeUserInput() {
+                editField.style.display ='none'
+              }
+              //let userInputValue = document.querySelector('.edit-field')
+              //userInputValue.addEventListener('submit', () => {
+              //editedArr.map(item => {
+              //})
+              //})
+              return {...item, todo: 'test'}
+              
+            }
+            return item;
+          })
+          
+          LocalStorage.addToStorage(editedArr);
+          //location.reload()
+          //UI.displayData();
+          
+          console.log(editedArr)
+          console.log(editBtnId)
+        }
+        
+      });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   UI.displayData();
   UI.removeTodo();
+  UI.editTodo();
 });
+ */

@@ -1,5 +1,14 @@
-@import url('https://unicons.iconscout.com/release/v4.0.0/css/line.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/*!*****************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css ***!
+  \*****************************************************************/
+@import url(https://unicons.iconscout.com/release/v4.0.0/css/line.css);
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css (1) ***!
+  \*********************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap);
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/style.css (2) ***!
+  \*********************************************************************/
 *{
   margin: 0;
   padding: 0;
@@ -215,3 +224,5 @@ body{
     margin-top: 4px;
   }
 }
+
+/*# sourceMappingURL=bundle.css.map*/

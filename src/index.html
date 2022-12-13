@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="utf-8">  
+    <title>Todo List App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do List</title>
-</head>
-<body>
-    <h1>Today's to-dos</h1>
-    <div id="todo-list">
-        <form class="form">
-            <input id="input" type="text"  placeholder="Add to your list...">
-            <button class="btn">👇</button>
-        </form>
-        <div class="lists">
-           <!--  <div class="todo">
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, blanditiis!</p>
-                <span>🚮</span>
-            </div> -->
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="task-input">
+        <img alt="icon">
+        <input type="text" placeholder="Add a new task">
+      </div>
+      <div class="controls">
+        <div class="filters">
+          <span class="active" id="all">All</span>
+          <span id="pending">Pending</span>
+          <span id="completed">Completed</span>
         </div>
+        <button class="clear-btn">Clear All</button>
+      </div>
+      <ul class="task-box"></ul>
     </div>
-    
-    
-</body>
+  </body>
 </html>
