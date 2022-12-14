@@ -1,92 +1,173 @@
+<a name="readme-top"></a>
 
-# To-Do list
-Javascript to do list.
+<div align="center">
 
-# 🛠 Built With
-### Tech Stack:
-- HTML5. 
-- CSS3.
-- Javascript.
+  <img src="murple_logo.png" alt="logo" width="140"  height="auto" />
+  <br/>
 
-### Client:
-- HTML.
-- CSS.
-- JS.
-### Server:
-- local.
-### Database:
-- N/A.
+  <h3><b>Microverse README Template</b></h3>
 
-# Key Features:
-- HTML5 semantics.
-- CSS3 Flexbox.
+</div>
+
+
+# 📗 Table of Contents
+
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Todo LIst ](#-todo-list-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+  - [👥 Author ](#-author-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
+
+
+# 📖 Todo LIst <a name="about-project"></a>
+
+> This is A simple but effective and responsive (mobile first) Microverse exercize project.
+>
+> **To-do list** is a tool that helps to organize your day. It simply lists the things that you need to do and allows you to mark them as complete.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+- Html.
+- Css.
 - Javascript ES6.
 
-# 🚀 Live Demo:
-https://bill7pearl.github.io/todo-add-remove
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JAVASCRIPT</li>
+  </ul>
+</details>
 
-# Presentation Video:
-- 
+<!-- Features -->
 
-# 💻 Getting Started:
-### To get a local copy up and running, follow these steps:
-- Installed Git.
-- Clone this repository to your local machine.
-- Open in a web browser.
+### Key Features <a name="key-features"></a>
 
-# Prerequisites:
-### In order to run this project you need:
-- Installed Git.
-- A browser.
+> Some key feature of this project
 
-# Setup:
-- Clone this repository to your desired folder.
+- **User can add Book by adding book title and book author]**
+- **User can Remove Book from book list**
 
-# Install:
-### Install this project with:
-- Git.
-- Github.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# Usage:
-### To run the project, execute the following command:
-- git clone https://github.com/bill7pearl/capstone1.git
+<!-- LIVE DEMO -->
 
-# Run tests:
-### To run tests, run the following command:
-- npx eslint .
-- npx stylelint "**/*.{css,scss}"
+## 🚀 Live Demo <a name="live-demo"></a>
 
-# Deployment:
-### You can deploy this project using:
-- Github pages.
+- [Live Demo Link](https://bill7pearl.github.io/todo/)
 
-# 👥 Authors:
-### 👤 Billal Chami:
-- GitHub: [@bill7pearl](https://github.com/bill7pearl)
-- Twitter: [@billchami](https://twitter.com/BillChami)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+>Please follow the instructions to clone my repo
+To get a local copy, follow these simple example steps.
+Clone this repository or download the Zip folder:
+
+### Prerequisites
+
+>Inorder to check the linters errors make sure you have installed the [nodejs](https://nodejs.org)
+
+
+### Setup
+
+>Clone this repository to your desired folder: cd [folder] to navigate and run the below comand to clone the project
+
+```sh
+git clone https://github.com/bill7pearl/todo.git
+```
+
+
+### Install
+
+Install this project with:
+
+download npm the packages
+```sh
+npm install --save-dev
+```
+
+### Usage
+
+ > To see the project in your local browser first of all, go to the dist folder then open the index.html file.
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 👥 Author <a name="authors"></a>
+
+
+
+👤 **Billal Chami**
+
+- GitHub: [@githubhandle](https://github.com/bill7pearl)
+- Twitter: [@twitterhandle](https://twitter.com/BillChami)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/billal-chami-263497194/)
 
-# 🔭 Future Features:
-- Use advanced JS data structures.
-- Implement some awesome animations and transitions to the design.
-- Integrate back-end.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- FUTURE FEATURES -->
+
+## 🔭 Future Features <a name="future-features"></a>
 
 
-# 🤝 Contributing:
+- [ ] **I will add more UX features**
+- [ ] **I will add more functionality using javascript and implement backend**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- CONTRIBUTING -->
+
+## 🤝 Contributing <a name="contributing"></a>
+
 Contributions, issues, and feature requests are welcome!
-Feel free to check the issues page.
 
-# ⭐️ Show your support
-If you like this project kindly send to me an e-mail expressing it, it would make my day and fuel my motivation.
+Feel free to check the [issues page](../../issues/).
 
-# 🙏 Acknowledgments:
-I would like to thank Microverse team for this journey.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-# ❓ FAQ:
-### How do I clone this with all the un-merged branches?
-- Kindly check the branches names in github then add them manually on your local machine, after that you may just pull the changes.
-### How to access the database?
-- It's not available for now I'm still working on it, once it's available I'll update this answer.
+<!-- SUPPORT -->
 
-# 📝 License:
-This project is MIT licensed.
+## ⭐️ Show your support <a name="support"></a>
+
+> Give a ⭐️ if you like this project!
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+> Without Microverse Help this project not compleated at all so thanks a lot Microverse for giving us this kind of opertunity.
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- LICENSE -->
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
