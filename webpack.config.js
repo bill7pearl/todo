@@ -6,7 +6,7 @@ const path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    bundle: './src/add-remove-edit.js',
+    bundle: './src/add-remove.js',
   },
   devServer: {
     static: './dist',
