@@ -9,8 +9,16 @@
 
 </div>
 
+<<<<<<< HEAD
 
 # 📗 Table of Contents
+=======
+# 🚀 Live Demo:
+
+
+# Presentation Video:
+
+>>>>>>> main
 
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 Todo LIst ](#-todo-list-)
@@ -147,6 +155,7 @@ Feel free to check the [issues page](../../issues/).
 
 <!-- SUPPORT -->
 
+<<<<<<< HEAD
 ## ⭐️ Show your support <a name="support"></a>
 
 > Give a ⭐️ if you like this project!
@@ -171,3 +180,7 @@ Feel free to check the [issues page](../../issues/).
 This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+=======
+# 📝 License:
+This project is MIT licensed.
+>>>>>>> main
