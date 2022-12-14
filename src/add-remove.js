@@ -1,8 +1,16 @@
-/* eslint-disable */
 // import _ from 'lodash';
 import './style.css';
 
 let todos = [];
+
+function updateIndices() {
+  let i = 1;
+  todos.forEach((obj) => {
+    obj.index = i;
+    i += 1;
+    localStorage.setItem('todos', JSON.stringify(todos));
+  });
+}
 
 function DisplayTodos() {
   const todoList = document.querySelector('#todo-list');
@@ -55,7 +63,7 @@ function DisplayTodos() {
       DisplayTodos();
     });
 
-    edit.addEventListener('click', (e) => {
+    edit.addEventListener('click', () => {
       const input = content.querySelector('input');
       input.removeAttribute('readonly');
       input.focus();
@@ -68,33 +76,23 @@ function DisplayTodos() {
       });
     });
 
-    deleteButton.addEventListener('click', (e) => {
+    deleteButton.addEventListener('click', () => {
       todos = todos.filter((t) => t !== todo);
       localStorage.setItem('todos', JSON.stringify(todos));
 
       DisplayTodos();
       updateIndices();
     });
-
-    function updateIndices() {
-      let i = 1;
-      todos.forEach(function(obj) {
-        obj.index = i;
-        i++;
-        localStorage.setItem('todos', JSON.stringify(todos));
-   });
-    }  
   });
 }
 window.addEventListener('load', () => {
   todos = JSON.parse(localStorage.getItem('todos')) || [];
-  const nameInput = document.querySelector('#name');
   const newTodoForm = document.querySelector('#new-todo-form');
   newTodoForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const todo = {
-      index: todos.length +1,
+      index: todos.length + 1,
       content: e.target.elements.content.value,
       completed: false,
     };
