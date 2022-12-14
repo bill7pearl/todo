@@ -1,6 +1,6 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 /* eslint-disable no-plusplus */
-import _ from 'lodash';
+/* import _ from 'lodash';
 import './style.css';
 
 const tasks = [
@@ -32,4 +32,4 @@ for (let i = 0; i < tasks.length; i++) {
         </div>
         `;
 }
-todoListContainer.innerHTML = tasksList;
+todoListContainer.innerHTML = tasksList; */
