@@ -1,8 +1,9 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable */
 // import _ from 'lodash';
 import './style.css';
 
 let todos = [];
+
 function DisplayTodos() {
   const todoList = document.querySelector('#todo-list');
   todoList.innerHTML = '';
@@ -25,7 +26,7 @@ function DisplayTodos() {
     actions.classList.add('actions');
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
-    content.innerHTML = `<input type="text" value="${todo.content}" readonly>`;
+    content.innerHTML = `<input data-id="${todo.index}" type="text" value="${todo.content}" readonly>`;
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
     label.appendChild(input);
@@ -70,8 +71,19 @@ function DisplayTodos() {
     deleteButton.addEventListener('click', (e) => {
       todos = todos.filter((t) => t !== todo);
       localStorage.setItem('todos', JSON.stringify(todos));
+
       DisplayTodos();
+      updateIndices();
     });
+
+    function updateIndices() {
+      let i = 1;
+      todos.forEach(function(obj) {
+        obj.index = i;
+        i++;
+        localStorage.setItem('todos', JSON.stringify(todos));
+   });
+    }  
   });
 }
 window.addEventListener('load', () => {
@@ -82,7 +94,7 @@ window.addEventListener('load', () => {
     e.preventDefault();
 
     const todo = {
-      index: 1,
+      index: todos.length +1,
       content: e.target.elements.content.value,
       completed: false,
     };

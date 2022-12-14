@@ -20,13 +20,13 @@ Javascript to do list.
 # Key Features:
 - HTML5 semantics.
 - CSS3 Flexbox.
-- Javascript dynamic content.
+- Javascript ES6.
 
 # 🚀 Live Demo:
-https://bill7pearl.github.io/capstone1
+https://bill7pearl.github.io/todo-add-remove
 
 # Presentation Video:
-- https://www.loom.com/share/45293f533fd7499988b3ab2f96389e03
+- 
 
 # 💻 Getting Started:
 ### To get a local copy up and running, follow these steps:
