@@ -1,4 +1,3 @@
-// import _ from 'lodash';
 import './style.css';
 import Todo from './modules/delete-completed.js';
 

@@ -10,7 +10,6 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
 /* harmony import */ var _modules_delete_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/delete-completed.js */ "./src/modules/delete-completed.js");
-// import _ from 'lodash';
 
 
 var todos = [];
