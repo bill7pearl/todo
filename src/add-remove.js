@@ -27,6 +27,7 @@ function DisplayTodos() {
     const actions = document.createElement('div');
     const edit = document.createElement('button');
     const deleteButton = document.createElement('button');
+    const deleteSelected = document.querySelector('.deleteAll');
     input.type = 'checkbox';
     input.checked = todo.completed;
     span.classList.add('bubble');
@@ -79,9 +80,17 @@ function DisplayTodos() {
     deleteButton.addEventListener('click', () => {
       todos = todos.filter((t) => t !== todo);
       localStorage.setItem('todos', JSON.stringify(todos));
-
       DisplayTodos();
       updateIndices();
+    });
+
+    deleteSelected.addEventListener('click', () => {
+      if (todo.completed === true) {
+        todos = todos.filter((t) => t !== todo);
+        localStorage.setItem('todos', JSON.stringify(todos));
+        DisplayTodos();
+        updateIndices();
+      }
     });
   });
 }

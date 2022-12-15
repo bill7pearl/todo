@@ -208,3 +208,18 @@ input:checked ~ .bubble::after {
   text-decoration: line-through;
   color: var(--grey);
 }
+
+.deleteAll {
+  display: block;
+  cursor: pointer;
+  background-color: crimson;
+  color: #eee;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.deleteAll:hover {
+  background-color: rgb(221, 64, 95);
+}
