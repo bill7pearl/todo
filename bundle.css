@@ -166,7 +166,7 @@ input:checked ~ .bubble::after {
   display: flex;
   align-items: center;
   background-color: #fff;
-  padding: 1rem;
+  padding: 0.7rem 0.2rem;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
   margin-bottom: 1rem;
@@ -183,12 +183,10 @@ input:checked ~ .bubble::after {
 
 .todo-item .actions {
   display: flex;
-  align-items: center;
 }
 
 .todo-item .actions button {
-  display: block;
-  padding: 0.5rem;
+  padding: 5px;
   border-radius: 0.25rem;
   color: #fff;
   cursor: pointer;
