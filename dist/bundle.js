@@ -9,38 +9,22 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ "./src/style.css");
-/* eslint-disable */
-//import _ from 'lodash';
+/* harmony import */ var _modules_delete_completed_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/delete-completed.js */ "./src/modules/delete-completed.js");
+// import _ from 'lodash';
 
-window.addEventListener('load', function () {
-  todos = JSON.parse(localStorage.getItem('todos')) || [];
-  var nameInput = document.querySelector('#name');
-  var newTodoForm = document.querySelector('#new-todo-form');
-  var username = localStorage.getItem('username') || '';
-  nameInput.value = username;
-  nameInput.addEventListener('change', function (e) {
-    localStorage.setItem('username', e.target.value);
-  });
-  newTodoForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var todo = {
-      content: e.target.elements.content.value,
-      category: e.target.elements.category.value,
-      done: false,
-      createdAt: new Date().getTime()
-    };
-    todos.push(todo);
+
+var todos = [];
+function updateIndices() {
+  var i = 1;
+  todos.forEach(function (obj) {
+    obj.index = i;
+    i += 1;
     localStorage.setItem('todos', JSON.stringify(todos));
-
-    // Reset the form
-    e.target.reset();
-    DisplayTodos();
   });
-  DisplayTodos();
-});
+}
 function DisplayTodos() {
   var todoList = document.querySelector('#todo-list');
-  todoList.innerHTML = "";
+  todoList.innerHTML = '';
   todos.forEach(function (todo) {
     var todoItem = document.createElement('div');
     todoItem.classList.add('todo-item');
@@ -51,19 +35,15 @@ function DisplayTodos() {
     var actions = document.createElement('div');
     var edit = document.createElement('button');
     var deleteButton = document.createElement('button');
+    var deleteSelected = document.querySelector('.deleteAll');
     input.type = 'checkbox';
-    input.checked = todo.done;
+    input.checked = todo.completed;
     span.classList.add('bubble');
-    if (todo.category == 'personal') {
-      span.classList.add('personal');
-    } else {
-      span.classList.add('business');
-    }
     content.classList.add('todo-content');
     actions.classList.add('actions');
     edit.classList.add('edit');
     deleteButton.classList.add('delete');
-    content.innerHTML = "<input type=\"text\" value=\"".concat(todo.content, "\" readonly>");
+    content.innerHTML = "<input data-id=\"".concat(todo.index, "\" type=\"text\" value=\"").concat(todo.content, "\" readonly>");
     edit.innerHTML = 'Edit';
     deleteButton.innerHTML = 'Delete';
     label.appendChild(input);
@@ -74,23 +54,24 @@ function DisplayTodos() {
     todoItem.appendChild(content);
     todoItem.appendChild(actions);
     todoList.appendChild(todoItem);
-    if (todo.done) {
+    if (todo.completed) {
       todoItem.classList.add('done');
     }
     input.addEventListener('change', function (e) {
-      todo.done = e.target.checked;
+      todo.completed = e.target.checked;
       localStorage.setItem('todos', JSON.stringify(todos));
-      if (todo.done) {
+      if (todo.completed) {
         todoItem.classList.add('done');
       } else {
         todoItem.classList.remove('done');
       }
       DisplayTodos();
     });
-    edit.addEventListener('click', function (e) {
+    edit.addEventListener('click', function () {
       var input = content.querySelector('input');
       input.removeAttribute('readonly');
       input.focus();
+      edit.innerHTML = 'Save';
       input.addEventListener('blur', function (e) {
         input.setAttribute('readonly', true);
         todo.content = e.target.value;
@@ -98,15 +79,68 @@ function DisplayTodos() {
         DisplayTodos();
       });
     });
-    deleteButton.addEventListener('click', function (e) {
+    deleteButton.addEventListener('click', function () {
       todos = todos.filter(function (t) {
-        return t != todo;
+        return t !== todo;
       });
       localStorage.setItem('todos', JSON.stringify(todos));
       DisplayTodos();
+      updateIndices();
+    });
+    input.addEventListener('change', function () {
+      deleteSelected.addEventListener('click', function () {
+        if (todo.completed === true) {
+          todos = todos.filter(function (t) {
+            return t !== todo;
+          });
+          localStorage.setItem('todos', JSON.stringify(todos));
+          DisplayTodos();
+          updateIndices();
+        }
+      });
     });
   });
 }
+window.addEventListener('load', function () {
+  todos = JSON.parse(localStorage.getItem('todos')) || [];
+  var newTodoForm = document.querySelector('#new-todo-form');
+  newTodoForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var todo = new _modules_delete_completed_js__WEBPACK_IMPORTED_MODULE_1__["default"](todos.length + 1, e.target.elements.content.value, false);
+    todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(todos));
+    e.target.reset();
+    DisplayTodos();
+  });
+  DisplayTodos();
+});
+
+/***/ }),
+
+/***/ "./src/modules/delete-completed.js":
+/*!*****************************************!*\
+  !*** ./src/modules/delete-completed.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Todo)
+/* harmony export */ });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var Todo = /*#__PURE__*/_createClass(function Todo(index, content) {
+  var completed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  _classCallCheck(this, Todo);
+  this.index = index;
+  this.content = content;
+  this.completed = completed;
+});
+
 
 /***/ }),
 
