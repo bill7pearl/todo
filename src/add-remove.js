@@ -1,5 +1,6 @@
 // import _ from 'lodash';
 import './style.css';
+import Todo from './modules/delete-completed.js';
 
 let todos = [];
 
@@ -84,13 +85,15 @@ function DisplayTodos() {
       updateIndices();
     });
 
-    deleteSelected.addEventListener('click', () => {
-      if (todo.completed === true) {
-        todos = todos.filter((t) => t !== todo);
-        localStorage.setItem('todos', JSON.stringify(todos));
-        DisplayTodos();
-        updateIndices();
-      }
+    input.addEventListener('change', () => {
+      deleteSelected.addEventListener('click', () => {
+        if (todo.completed === true) {
+          todos = todos.filter((t) => t !== todo);
+          localStorage.setItem('todos', JSON.stringify(todos));
+          DisplayTodos();
+          updateIndices();
+        }
+      });
     });
   });
 }
@@ -100,11 +103,7 @@ window.addEventListener('load', () => {
   newTodoForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const todo = {
-      index: todos.length + 1,
-      content: e.target.elements.content.value,
-      completed: false,
-    };
+    const todo = new Todo(todos.length + 1, e.target.elements.content.value, false);
     todos.push(todo);
 
     localStorage.setItem('todos', JSON.stringify(todos));
