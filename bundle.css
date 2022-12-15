@@ -68,6 +68,12 @@ h4 {
   margin-bottom: 1.5rem;
 }
 
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  padding:0 10px;
+}
+
 .create-todo .options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
