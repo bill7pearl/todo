@@ -14,7 +14,7 @@ export function updateIndices() {
 
 export function DisplayTodos() {
   const todoList = document.querySelector('#todo-list');
-  //todoList.innerHTML = '';
+  // todoList.innerHTML = '';
 
   todos.forEach((todo) => {
     const todoItem = document.createElement('div');
@@ -96,6 +96,7 @@ export function DisplayTodos() {
     });
   });
 }
+
 window.addEventListener('load', () => {
   todos = JSON.parse(localStorage.getItem('todos')) || [];
   const newTodoForm = document.querySelector('#new-todo-form');
