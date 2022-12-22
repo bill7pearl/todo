@@ -124,6 +124,35 @@ describe('edit todo', () => {
   });
 });
 
+describe('delete selected', () => {
+test('delete selected todo items with status true', () => {
+  // Set up the test by adding some todos to the `todos` array
+  let todos = [
+    { index: 1, content: 'Todo 1', completed: false },
+    { index: 2, content: 'Todo 2', completed: true },
+    { index: 3, content: 'Todo 3', completed: true },
+  ];
+
+  //Mock the local storage
+  localStorage.setItem('todos', JSON.stringify(todos));
+
+  // Set up the DOM for the test
+  document.body.innerHTML = `
+    <button id="deleteSelected">Delete Selected</button>
+  `;
+
+  // Add the event listener to the deleteSelected button
+  const deleteSelectedButton = document.querySelector('#deleteSelected');
+  deleteSelectedButton.addEventListener('click', () => {
+    todos = todos.filter((t) => t.completed === false);
+
+    // Assert that the selected todos have been removed and the local storage is updated
+    expect(todos).toEqual([{ index: 1, content: 'Todo 1', completed: false }]);
+    expect(localStorage.getItem(todos));
+  });
+ });
+});
+
 
 
 
