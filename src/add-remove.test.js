@@ -47,4 +47,84 @@ describe('test remove todo functionality', () => {
   });
 })
 
+describe('updateIndices', () => {
+  test('updates the indices of the todos objects', () => {
+    // Set up test data
+    const todos = [
+      { index: 1, content: 'Task 1', completed: false },
+      { index: 2, content: 'Task 2', completed: false },
+      { index: 3, content: 'Task 3', completed: false }
+    ];
+
+    // Initialize localStorage
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    // Call the function
+    updateIndices(todos);
+
+    // Make assertions
+    expect(todos[0].index).toBe(1);
+    expect(todos[1].index).toBe(2);
+    expect(todos[2].index).toBe(3);
+    expect(localStorage.getItem(todos));
+  });
+});
+
+describe('test completed status', () => {
+  test('updates completed status to true or false', () => {
+    // Set up test data
+    const todo = { index: 1, content: 'Task 1', completed: false };
+    const todos = [todo];
+
+    // Mock localStorage
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    // Call the event listener
+    const input = document.createElement('input');
+    input.addEventListener('change', (e) => {
+      todo.completed = input.checked;
+      localStorage.setItem('todos', JSON.stringify(todos));
+
+      // Make assertions
+      expect(todo.completed).toBe(true);
+      expect(localStorage.getItem(todos));
+      DisplayTodos();
+    });
+  });
+});
+
+describe('edit todo', () => {
+  test('update content based on user input', () => {
+    // Set up test data
+    const todo = { index: 1, content: 'Task 1', completed: false };
+    const userInput = { index: 1, content: 'Task 1 (edited by user)', completed: false };
+    const todos = [todo];
+
+    // Mock localStorage
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    // Call the event listener
+    const input = document.createElement('input');
+    const edit = document.createElement('button');
+    edit.addEventListener('click', () => {
+      input.removeAttribute('readonly');
+      input.focus();
+      edit.innerHTML = 'Save';
+      input.addEventListener('submit', () => {
+        input.setAttribute('readonly', true);
+        input.value = userInput.content;
+        localStorage.setItem('todos', JSON.stringify(todos));
+        DisplayTodos();
+      });
+      // Make assertions
+      expect(todo.content).toBe('Task 1 (edited)');
+      expect(edit.innerHTML).toBe('Save');
+      expect(localStorage.getItem(todos));
+    });
+  });
+});
+
+
+
+
 
